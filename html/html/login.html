@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .head-box{
+            width: 100%;
+            height: 88px;
+        }
+        .head-box-body{
+            height: 100%;
+            position: relative;
+        }
+        .body-width{
+            width: 1190px;
+            margin: 0 auto;
+        }
+        .head-box-body .tm-log{
+            width: 190px;
+            position: absolute;
+            top: calc( (100% - 27px) / 2);
+        }
+        .body-box{
+            width: 100%;
+            height: 600px;
+            background-color: rgb(193, 2, 3);
+        }
+        .body-box-body{
+            height: 100%;
+            background-color: rgb(193, 2, 3);
+            position: relative;
+        }
+        .login-banner{
+            margin: auto;
+        }
+        .login-form_box{
+            position: absolute;
+            width: 350px;
+            min-height: 400px;
+            background-color: #ffffff;
+            top: 100px;
+            right: 0;
+        }
+        .login-form_box_pos{
+            width: calc( 100% - 50px );
+            height: 100%;
+            position: relative;
+            padding: 25px;
+        }
+        .form-box-1{
+            width: 100%;
+            height: 100%;
+            background-color: aquamarine;
+        }
+        .corner-icon-view{
+            position: static;
+            width: 100%;
+        }
+        .QR-code-box{
+            top: 1px;
+            right: 1px;
+            width: 70px;
+            height: 70px;
+            background-color: forestgreen;
+            position: absolute;
+        }
+        .QR-code-back{
+            top: 19px;
+            right: 19px;
+            width: 99px;
+            height: 99px;
+            background-color: royalblue;
+            position: absolute;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="head-box">
+        <div class="head-box-body body-width">
+            <a href="#">
+                <img class="tm-log" src="../images/login-head-log.png">
+            </a>
+        </div>
+    </div>
+    <div class="body-box">
+        <div class="body-box-body body-width">
+            <a href="#">
+                <img class="login-banner" src="../images/login-baner.jpg">
+            </a>
+            <div class="login-form_box">
+                <div class="login-form_box_pos">
+                    <div class="form-box-1">
+                        <div class="corner-icon-view">
+                            <div class="QR-code-box">
+
+                        </div>
+                            <div class="QR-code-back">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot-box">
+    </div>
+</body>
+</html>
