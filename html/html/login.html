@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <link href="../js/layui/css/layui.css">
     <style>
         *{
             margin: 0;
@@ -28,11 +29,11 @@
         .body-box{
             width: 100%;
             height: 600px;
-            background-color: rgb(193, 2, 3);
+            background-color: rgb(255, 49, 90);
         }
         .body-box-body{
             height: 100%;
-            background-color: rgb(193, 2, 3);
+            background-color: rgb(255, 49, 90);
             position: relative;
         }
         .login-banner{
@@ -41,42 +42,142 @@
         .login-form_box{
             position: absolute;
             width: 350px;
-            min-height: 400px;
+            height: 400px;
             background-color: #ffffff;
             top: 100px;
-            right: 0;
+            right: 70px;
         }
         .login-form_box_pos{
             width: calc( 100% - 50px );
-            height: 100%;
+            height: calc( 100% - 50px );
             position: relative;
             padding: 25px;
         }
         .form-box-1{
             width: 100%;
             height: 100%;
-            background-color: aquamarine;
         }
         .corner-icon-view{
             position: static;
             width: 100%;
         }
         .QR-code-box{
-            top: 1px;
-            right: 1px;
-            width: 70px;
-            height: 70px;
-            background-color: forestgreen;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 65px;
+            height: 65px;
             position: absolute;
+            z-index: 99;
         }
         .QR-code-back{
-            top: 19px;
-            right: 19px;
+            top: 28px;
+            right: 23px;
             width: 99px;
             height: 99px;
-            background-color: royalblue;
+            background-color: #ffffff;
             position: absolute;
             transform: rotate(45deg);
+            z-index: 100;
+        }
+        .login-form_box-title{
+            position: absolute;
+            left: 0;
+            top: calc( 1rem + 30px);
+            width: calc( 100% - 25px );
+            height: 3rem;
+            padding-left: 25px;
+        }
+        .login-form_box-title li{
+            list-style: none;
+            float: left;
+            margin-right: 0.5rem;
+            height: 1.5rem;
+        }
+        .font-border{
+            border-bottom: 2px solid #000000;
+        }
+        .login-form_box-title li a{
+            font-size: 16px;
+            font-weight: bolder;
+            text-decoration: none;
+            color: #000000;
+        }
+        .form-box-body{
+            position: absolute;
+            top: calc( 1rem + 60px );
+            width: calc( 100% - 50px );
+            height: 300px;
+            z-index: 101;
+        }
+        .xsj-box{
+            position: absolute;
+            top: 0.7rem;
+            right: 72px;
+        }
+        .sanjiao_box{
+            width: 100px;
+            height: 30px;
+            border: 1px solid #f3d995;
+            background: #fefcee;
+            position: relative;
+            z-index: 101;
+        }
+        .sanjiao{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fefcee;
+            border-right: 1px solid #f3d995;
+            border-top: 1px solid #f3d995;
+            top: 11px;
+            right: -6.5px;
+            transform: rotate(45deg);
+        }
+        .poptip-content {
+            color: #ff9000;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 2rem;
+            text-align: center;
+        }
+        .foot-box{
+            width: 100%;
+            background-color: #ffffff;
+            min-height: 200px;
+        }
+        .foot-box-body{
+            width: 1190px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        .foot-box-body ul{
+            width: 100%;
+        }
+        .foot-box-body ul li{
+            list-style: none;
+            width: 100%;
+            height: 36px;
+        }
+
+        .foot-box-body ul li a{
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .foot-box-body ul li.a-one a{
+            color: #000000;
+        }
+        .foot-box-body ul li.a-one a:hover {
+            text-decoration: underline #000000;
+        }
+        .a-one2 a{
+            margin-right: 1rem;
+        }
+        .foot-box-body ul li.a-one3{
+            height: auto;
+        }
+        .foot-box-body ul li.a-one3 a{
+            color: #666;
+            margin-right: 2rem;
         }
     </style>
 </head>
@@ -91,18 +192,55 @@
     <div class="body-box">
         <div class="body-box-body body-width">
             <a href="#">
-                <img class="login-banner" src="../images/login-baner.jpg">
+                <img class="login-banner" src="../images/login-baner2.jpg">
             </a>
-            <div class="login-form_box">
+            <div id="form-login-boxs" class="login-form_box" >
                 <div class="login-form_box_pos">
                     <div class="form-box-1">
                         <div class="corner-icon-view">
-                            <div class="QR-code-box">
-
+                            <a href="#"  onclick="cutLoginStyle(1)">
+                                <div class="QR-code-box">
+                                    <img width="100%" height="100%" src="../images/erweima.png">
+                                </div>
+                            </a>
+                            <div class="QR-code-back"></div>
                         </div>
-                            <div class="QR-code-back">
-
+                        <div class="login-form_box-title">
+                            <ul class="login-form_box-title-ul">
+                                <li class="font-border"><a href="#" _src="./login-from.html">密码登录</a></li>
+                                <li><a href="#" _src="./login-from1.html">短信登录</a></li>
+                            </ul>
+                        </div>
+                        <div class="xsj-box">
+                            <div class="sanjiao_box">
+                                <div class="poptip-content">扫码登录更安全</div>
+                                <div class="sanjiao"></div>
                             </div>
+                        </div>
+                        <div class="form-box-body">
+                            <iframe class="form-box-body-iframe" id="form-box-body-iframe" src="./login-from.html" frameborder="0" height="100%" width="100%"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="erweima-box" class="login-form_box" style="display: none">
+                <div class="login-form_box_pos">
+                    <div class="form-box-1">
+                        <div class="corner-icon-view">
+                            <a href="#" onclick="cutLoginStyle(2)">
+                                <div class="QR-code-box">
+                                    <img width="100%" height="100%" src="../images/computer3.png">
+                                </div>
+                            </a>
+                            <div class="QR-code-back"></div>
+                        </div>
+                        <div class="login-form_box-title">
+                            <ul class="login-form_box-title-ul">
+                                <li class=""><p2 style="font-weight: bolder">手机扫码,安全登录</p2></li>
+                            </ul>
+                        </div>
+                        <div class="form-box-body">
+                            <iframe class="form-box-body-iframe" id="form-box-body-iframe2" src="./login-erweima.html" frameborder="0" height="100%" width="100%"></iframe>
                         </div>
                     </div>
                 </div>
@@ -110,6 +248,81 @@
         </div>
     </div>
     <div class="foot-box">
+        <div class="foot-box-body">
+            <ul>
+                <li class="a-one">
+                    <a href="#">关于天猫</a>
+                    <a href="#">帮助中心</a>
+                    <a href="#">开放中心</a>
+                    <a href="#">诚聘英才</a>
+                    <a href="#">联系我们</a>
+                    <a href="#">网站合作</a>
+                    <a href="#">法律声明</a>
+                    <a href="#">隐私权政策</a>
+                    <a href="#">知识产权</a>
+                    <a href="#">廉政举报</a>
+                </li>
+                <li class="a-one a-one2">
+                    <a href="#">阿里巴巴集团</a>
+                    <a href="#">淘宝网</a>
+                    <a href="#">天猫</a>
+                    <a href="#">聚划算</a>
+                    <a href="#">全球速卖通</a>
+                    <a href="#">阿里巴巴国际交易市场</a>
+                    <a href="#">1688</a>
+                    <a href="#">阿里妈妈</a>
+                    <a href="#">飞猪</a>
+                    <a href="#">阿里云计算</a>
+                    <a href="#">AliOS</a>
+                    <a href="#">万网</a>
+                    <a href="#">UC</a>
+                    <a href="#">友盟</a>
+                    <a href="#">钉钉</a>
+                    <a href="#">支付宝</a>
+                    <a href="#">阿里安全</a>
+                </li>
+                <li class="a-one3">
+                    <a>增值电信业务经营许可证： 浙B2-20110446</a>
+                    <a>市场名称登记证：工商网市字3301004119号</a>
+                    <a>出版物网络交易平台服务经营备案证： 新出发浙备字第001号</a>
+                </li>
+                <li class="a-one3">
+                    <a>互联网违法和不良信息举报电话：0571-81683755 blxxjb@alibaba-inc.com</a>
+                    <a>互联网药品信息服务资质证书编号：浙-（经营性）-2017-0005</a>
+                    <a><img src="../images/guohui.png">浙公网安备 33010002000120号</a>
+                </li>
+                <li class="a-one3">
+                    <a>医疗器械网络交易服务第三方平台备案：（浙）网械平台备字[2018]第00002号</a>
+                    <a>互联网药品交易服务资格证书：国A20150001</a>
+                </li>
+                <li class="a-one3">
+                    <a style="color: #999;"> © 2003-2020 TMALL.COM 版权所有</a>
+                </li>
+            </ul>
+        </div>
     </div>
+    <script src="../js/jquery-3.4.1/jquery-3.4.1.js"></script>
+    <script src="../js/layui/layui.js"></script>
+<script>
+    $(".login-form_box-title-ul li").on("click",function () {
+        $(this).addClass("font-border").siblings().removeClass("font-border");
+        let _src = $(this).children().attr("_src");
+        console.log(_src)
+        $("#form-box-body-iframe").attr("src",_src);
+    })
+    
+    function cutLoginStyle(data) {
+        if (data==1){
+            $("#form-login-boxs").hide();
+            $("#erweima-box").show();
+        }else if (data==2){
+            $("#erweima-box").hide()
+            $("#form-login-boxs").show();
+        }else {
+            $("#erweima-box").hide()
+            $("#form-login-boxs").show();
+        }
+    }
+</script>
 </body>
 </html>
